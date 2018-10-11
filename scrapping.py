@@ -11,11 +11,11 @@ def get_builds_titles(build_title_tags):
 
     # remove (strip) ' (talent calculator link)' from title
     strip_size = (len(' (talent calculator link)') + 1)
-    build_titles = [title.get_text()[:-strip_size] for title in build_title_tags]
+    build_titles_aux = [title.get_text()[:-strip_size] for title in build_title_tags]
 
     # sometimes there is a '\n' we need to strip, if last letter is a 'd'
     # then we striped the '\n', else we striped a 'd' we need to put back
-    for title in build_titles:
+    for title in build_titles_aux:
         if len(title) >= 1 and title[-1] is not 'd':
             build_titles.append(title + 'd')
         else:
