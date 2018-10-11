@@ -1,5 +1,5 @@
 #
-# gets all builds for all heroes (prints or writes to file (json?)
+# gets all builds for all heroes (prints or writes to file (json?) -> JSON!
 from utils import get_soup, normalize_hero_name
 from scrapping import get_hero_builds, print_build
 import json
