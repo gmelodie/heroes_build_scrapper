@@ -1,6 +1,8 @@
 
 # Utilities' library
 import unicodedata
+import requests
+from bs4 import BeautifulSoup
 
 '''
 Gets a link, downloads page and gets soup
