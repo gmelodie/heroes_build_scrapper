@@ -4,24 +4,35 @@
 import requests
 from bs4 import BeautifulSoup
 
-levels = [1, 4, 7, 10, 13, 16, 20] # levels in which one gets talents
-page_link = 'https://www.icy-veins.com/heroes/varian-build-guide'
 
-page = requests.get(page_link)
-soup = BeautifulSoup(page.content, 'html.parser')
+def print_build(levels, build, title):
+    print('============== ' + str(title) + ' ==============')
+    for level, talent in zip(levels, build):
+        print('Level ' + str(level) + ' Talent ' + str(talent))
 
-builds = soup.find_all('div', class_='heroes_tldr_talents')
-build_title_tags = soup.find_all('h4', class_='toc_no_parsing')
-build_titles = [title.get_text()[:-(len(' (talent calculator link)')+1)] for title in build_title_tags]
 
-for build_number, build in enumerate(builds):
-    print('============== ' + str(build_titles[build_number]) + ' ==============')
-    talent_tiers = build.find_all('span', class_= 'heroes_tldr_talent_tier_visual')
+def get_builds(hero):
+    builds = []
 
-    for level, tier in zip(levels, talent_tiers):
-        print('Level ' + str(level), end=' ')
-        children = tier.find_all('span')
-        for j, child in enumerate(children):
-            if('heroes_tldr_talent_tier_yes' in child['class']):
-                print('Talent ' + str(j + 1))
+    page_link = 'https://www.icy-veins.com/heroes/' + hero + '-build-guide'
 
+    page = requests.get(page_link)
+    soup = BeautifulSoup(page.content, 'html.parser')
+
+    builds_tags = soup.find_all('div', class_='heroes_tldr_talents')
+    build_title_tags = soup.find_all('h4', class_='toc_no_parsing')
+    build_titles = [title.get_text()[:-(len(' (talent calculator link)'))] for title in build_title_tags]
+    build_titles = [title[:-1] if title[-1] is '\n' else title for title in build_titles]
+
+    for build_number, build_tag in enumerate(builds_tags):
+        build = []
+        talent_tiers = build_tag.find_all('span', class_= 'heroes_tldr_talent_tier_visual')
+
+        for tier in talent_tiers:
+            children = tier.find_all('span')
+            for j, child in enumerate(children):
+                if('heroes_tldr_talent_tier_yes' in child['class']):
+                    build.append(j+1)
+        builds.append(build[:])
+
+    return builds, build_titles
