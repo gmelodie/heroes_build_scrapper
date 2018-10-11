@@ -34,22 +34,53 @@ def update_heroes_list():
 Updates list of builds (in [hero name].json) for a given hero
 '''
 def update_builds(hero):
-    pass
+    print('Updating builds for ' + hero + '...', end='')
+    builds, titles = get_builds(hero)
+    filename = 'data/builds/' + hero + '.json'
+
+    with open(filename, 'w') as fp:
+        for build, title in zip(builds, titles):
+            json.dump(build, fp)
+            json.dump(title, fp)
+
+    print('OK')
 
 
 '''
 Updates all builds of all heroes (calls update_builds for all heroes)
 '''
 def update_all_builds():
-    pass
+    print('Starting full heroes build update')
+    with open('data/heroes.json', 'r') as fp:
+        heroes = json.load(fp)
+
+    print(heroes)
+    for hero in heroes:
+        update_builds(hero)
+
+
+'''
+Loads builds for one hero
+'''
+def load_builds(hero):
+    filename = 'data/builds/' + hero + '.json'
+    with open(filename, 'r') as fp:
+        data = json.load(fp)
+    print(data)
+
 
 
 def print_all_builds():
     with open('data/heroes.json', 'r') as fp:
         heroes = json.load(fp)
 
+    with open('data/levels.json', 'r') as fp:
+        levels = json.load(fp)
+
     for hero in heroes:
         print('-------------------------------- ' + hero + ' --------------------------------')
-        builds, titles = get_builds(hero)
+        builds, titles = load_builds(hero)
         for build, title in zip(builds, titles):
             print_build(levels, build, title)
+
+update_all_builds()
