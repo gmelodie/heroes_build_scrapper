@@ -1,32 +1,22 @@
 
 # Scrapes alextraza's build (has 2 builds)
 
+from utils import print_build, normalize_hero_name
 import requests
-import unicodedata
 from bs4 import BeautifulSoup
 
 
-def print_build(levels, build, title):
-    print('============== ' + str(title) + ' ==============')
-    for level, talent in zip(levels, build):
-        print('Level ' + str(level) + ' Talent ' + str(talent))
 
 '''
-Clears string so that fits link
+Scrape icy-veins for builds for the given hero
+Returns two lists: one with other lists (each one for each build)
+and the second one with the builds' titles
 '''
-def clear(hero):
-    hero = str(unicodedata.normalize('NFD', hero).encode('ascii', 'ignore'))
-    hero = hero.replace(' ', '')
-    hero = hero.replace("'", '')
-    hero = hero[1:]
-    return hero.lower()
-
-
-
-def get_builds(hero):
+def get_hero_builds(hero):
     builds = []
 
-    hero = clear(hero)
+    hero = normalize_hero_name(hero)
+
 
     page_link = 'https://www.icy-veins.com/heroes/' + hero + '-build-guide'
 
