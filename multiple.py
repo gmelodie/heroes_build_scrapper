@@ -11,11 +11,11 @@ page = requests.get(page_link)
 soup = BeautifulSoup(page.content, 'html.parser')
 
 builds = soup.find_all('div', class_='heroes_tldr_talents')
-#builds_titles = soup.find_all('h4', class_='toc_no_parsing')
+build_title_tags = soup.find_all('h4', class_='toc_no_parsing')
+build_titles = [title.get_text() for title in build_title_tags]
 
-print(builds)
 for build_number, build in enumerate(builds):
-    print('============== Build ' + str(build_number) + ' ==============')
+    print('============== ' + str(build_titles[build_number]) + ' ==============')
     talent_tiers = build.find_all('span', class_= 'heroes_tldr_talent_tier_visual')
 
     for level, tier in zip(levels, talent_tiers):
