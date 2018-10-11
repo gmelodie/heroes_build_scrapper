@@ -18,6 +18,7 @@ def clear(hero):
     hero = str(unicodedata.normalize('NFD', hero).encode('ascii', 'ignore'))
     hero = hero.replace(' ', '')
     hero = hero.replace("'", '')
+    hero = hero[1:]
     return hero.lower()
 
 
@@ -28,7 +29,6 @@ def get_builds(hero):
     hero = clear(hero)
 
     page_link = 'https://www.icy-veins.com/heroes/' + hero + '-build-guide'
-    print('link for ' + hero + 'is ' + page_link)
 
     page = requests.get(page_link)
     soup = BeautifulSoup(page.content, 'html.parser')
@@ -54,5 +54,8 @@ def get_builds(hero):
                 if('heroes_tldr_talent_tier_yes' in child['class']):
                     build.append(j+1)
         builds.append(build[:])
+
+    # remove empty titles
+    build_titles = [title for title in build_titles if title != '']
 
     return builds, build_titles
