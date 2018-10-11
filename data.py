@@ -16,21 +16,18 @@ Automatically scrape the list of heroes from icy-veins and
 write it to a json file (heroes.json)
 '''
 def update_heroes_list():
-    heroes_names = []
+    heroes_names = set()
     roles = ['assassin', 'support', 'warrior', 'specialist']
 
     for role in roles:
         link = 'https://www.icy-veins.com/heroes/' + role + '-hero-guides'
         soup = get_soup(link)
         hero_block_tags = soup.find_all('div', class_='nav_content_block_entry_heroes_hero')
-        print(hero_block_tags)
-        hero_names = [hero.find('span', class_='').get_txt() for hero in list(hero_block_tags)]
-
-        #heroes_names += [hero_tag.get_txt() for hero_tag in heroes_tags]
-        #[print(hero_tag.get_txt()) for hero_tag in heroes_tags]
+        for hero_block in hero_block_tags:
+            heroes_names.add(hero_block.find('span', class_='').contents[0])
 
     with open('data/heroes.json', 'w') as fp:
-        json.dump(heroes_names)
+        json.dump(list(heroes_names), fp)
 
 
 '''
@@ -56,5 +53,3 @@ def print_all_builds():
         builds, titles = get_builds(hero)
         for build, title in zip(builds, titles):
             print_build(levels, build, title)
-
-update_heroes_list()
