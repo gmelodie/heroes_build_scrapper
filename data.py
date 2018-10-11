@@ -40,8 +40,6 @@ def update_builds(hero):
 
     with open(filename, 'w') as fp:
         for build, title in zip(builds, titles):
-            print(build)
-            print(title)
             json.dump(build, fp)
             json.dump(title, fp)
 
@@ -56,7 +54,6 @@ def update_all_builds():
     with open('data/heroes.json', 'r') as fp:
         heroes = json.load(fp)
 
-    print(heroes)
     for hero in heroes:
         update_builds(hero)
 
@@ -85,4 +82,3 @@ def print_all_builds():
         for build, title in zip(builds, titles):
             print_build(levels, build, title)
 
-update_all_builds()
