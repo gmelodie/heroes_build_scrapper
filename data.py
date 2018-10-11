@@ -40,6 +40,8 @@ def update_builds(hero):
 
     with open(filename, 'w') as fp:
         for build, title in zip(builds, titles):
+            print(build)
+            print(title)
             json.dump(build, fp)
             json.dump(title, fp)
 
