@@ -66,18 +66,20 @@ Loads builds for a hero
 def load_builds(hero):
     hero = normalize_hero_name(hero)
     filename = 'data/builds/' + hero + '.json'
+    load_list = []
     builds = []
     builds_titles = []
 
     with open(filename, 'r') as fp:
-        while(fp):
-            builds.append(json.load(fp))
-            builds_titles.append(json.load(fp))
+        load_list = json.load(fp)
 
-    print(builds)
-    print(builds_titles)
+    print(load_list)
 
+    for i in range(0, len(load_list) - 1, 2):
+        builds.append(load_list[i])
+        builds_titles.append(load_list[i+1])
 
+    return builds, builds_titles
 
 def print_all_builds():
     with open('data/heroes.json', 'r') as fp:
@@ -92,5 +94,3 @@ def print_all_builds():
         for build, title in zip(builds, titles):
             print_build(levels, build, title)
 
-
-load_builds('diablo')
