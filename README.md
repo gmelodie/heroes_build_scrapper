@@ -12,3 +12,5 @@ For now the only dependency needed for this project is `bs4`
 pip install bs4
 ```
 ## Usage
+
+## Contributing
