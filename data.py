@@ -32,15 +32,18 @@ def update_heroes_list():
 Updates list of builds (in [hero name].json) for a given hero
 '''
 def update_hero_builds(hero):
+    dump_list = []
     hero = normalize_hero_name(hero)
     print('Updating builds for ' + hero + '...', end='')
     builds, titles = get_hero_builds(hero)
     filename = 'data/builds/' + hero + '.json'
 
+    for build, title in zip(builds, titles):
+        dump_list.append(build)
+        dump_list.append(title)
+
     with open(filename, 'w') as fp:
-        for build, title in zip(builds, titles):
-            json.dump(build, fp)
-            json.dump(title, fp)
+        json.dump(dump_list, fp)
 
     print('OK')
 
@@ -58,16 +61,21 @@ def update_all_builds():
 
 
 '''
-Loads builds for one hero
+Loads builds for a hero
 '''
 def load_builds(hero):
     hero = normalize_hero_name(hero)
     filename = 'data/builds/' + hero + '.json'
+    builds = []
+    builds_titles = []
 
     with open(filename, 'r') as fp:
-        data = json.load(fp)
+        while(fp):
+            builds.append(json.load(fp))
+            builds_titles.append(json.load(fp))
 
-    print(data)
+    print(builds)
+    print(builds_titles)
 
 
 
@@ -84,4 +92,5 @@ def print_all_builds():
         for build, title in zip(builds, titles):
             print_build(levels, build, title)
 
-update_all_builds()
+
+load_builds('diablo')
