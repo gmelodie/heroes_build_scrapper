@@ -5,8 +5,8 @@ folder = 'data/builds'
 if not os.path.exists(folder):
     os.makedirs(folder)
 
-with open('requirements.txt') as f:
-    required = f.read().splitlines()
+with open('requirements.txt') as fp:
+    required = fp.read().splitlines()
 
 setup(
     install_requires=required,
