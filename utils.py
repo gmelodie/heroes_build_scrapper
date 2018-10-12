@@ -24,7 +24,7 @@ Clears string so that fits link
 def normalize_hero_name(hero):
     hero = unicodedata.normalize('NFD', hero).encode('ascii', 'ignore')
     hero = str(hero.decode('utf-8'))
-    hero = hero.replace(' ', '')
+    hero = hero.replace(' ', '-')
     hero = hero.replace('.', '')
     hero = hero.replace('\'', '')
     return hero.lower()
