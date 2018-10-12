@@ -1,6 +1,3 @@
-
-# Scrapes alextraza's build (has 2 builds)
-
 from utils import print_build, normalize_hero_name, get_soup
 import requests
 from bs4 import BeautifulSoup
