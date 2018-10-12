@@ -75,6 +75,12 @@ def load_builds(hero):
     with open(filename, 'r') as fp:
         load_list = json.load(fp)
 
+    for i in range(0, len(load_list) - 1, 2):
+        builds.append(load_list[i])
+        builds_titles.append(load_list[i + 1])
+
+    return builds, builds_titles
+
 def print_all_builds():
     with open('data/heroes.json', 'r') as fp:
         heroes = json.load(fp)
