@@ -7,4 +7,8 @@ get a talent. Hopefully this project will help me by going to the page and telli
 I need to get without leaving the game.
 
 ## Dependencies
-
+For now the only dependency needed for this project is `bs4`
+```
+pip install bs4
+```
+## Usage
