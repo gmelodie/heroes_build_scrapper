@@ -10,7 +10,7 @@ with open('requirements.txt') as f:
 
 setup(
     install_requires=required,
-    name='heroes-build-scrapper',
+    name='heroes_build_scrapper',
     version='0.0.1',
     author='Gabriel Cruz',
     author_email=('email'),
