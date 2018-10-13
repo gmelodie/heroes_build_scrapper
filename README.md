@@ -28,22 +28,18 @@ Usage
 Contributing
 ------------
 
-When contributing, add your nick and player tag to the [PLAYERS.md](PLAYERS.md)
-file.
+When contributing, add your nick and player tag to the [PLAYERS.md](PLAYERS.md) file. 
 
 ### Before Changing any Code
 
-Please do not write any pull requests until an issue has been opened and
-assigned.
+-   Please do not write any pull requests until an issue has been opened and assigned. 
 
-Please do not write any pull requests for closed issues.
+-   Please do not write any pull requests for closed issues.
 
 ### Before Sending in a PR
 
-Check that your PR and commits have useful titles that relate to the issue
+-   Check that your PR and commits have useful titles that relate to the issue 
 
-Check your spelling and grammar thoroughly
+-   Check your spelling and grammar thoroughly
 
-Have fun and happy open sourcing!
-
- 
+-   Have fun and happy open sourcing!
