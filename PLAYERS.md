@@ -11,3 +11,4 @@ The format here is
 * [LTKills#1331](https://github.com/LTKills)
 * [Maskinen#2589](https://github.com/mtenmann)
 * [Nashi#2664](https://github.com/Nikoleta-v3)
+* [Isaac Lim](https://github.com/theIsaacLim)
