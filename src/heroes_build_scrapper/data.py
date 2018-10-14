@@ -1,10 +1,11 @@
 #
 # gets all builds for all heroes (prints or writes to file (json?) -> JSON!
-from utils import get_soup, normalize_hero_name
-from scrapping import get_hero_builds, print_build
+from .utils import get_soup, normalize_hero_name
+from .scrapping import get_hero_builds, print_build
 import json
 import requests
 from bs4 import BeautifulSoup
+import os
 
 
 '''
@@ -53,6 +54,7 @@ Updates all builds of all heroes (calls update_builds for all heroes)
 '''
 def update_all_builds():
     print('Starting full heroes build update')
+
     with open('data/heroes.json', 'r') as fp:
         heroes = json.load(fp)
 
@@ -75,7 +77,7 @@ def load_builds(hero):
 
     for i in range(0, len(load_list) - 1, 2):
         builds.append(load_list[i])
-        builds_titles.append(load_list[i+1])
+        builds_titles.append(load_list[i + 1])
 
     return builds, builds_titles
 
@@ -91,4 +93,3 @@ def print_all_builds():
         builds, titles = load_builds(hero)
         for build, title in zip(builds, titles):
             print_build(levels, build, title)
-

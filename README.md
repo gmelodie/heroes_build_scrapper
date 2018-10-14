@@ -1,32 +1,34 @@
-heroes-build-scrapper
-=====================
+# heroes-build-scrapper
 
-I've played Heroes of The Storm since its alpha releases but for some reason
-I've always found myself digging builds in Icy Veins instead of comming up with
-my own. It was all flowers when I had two monitors, but now that I'm back to
-single monitor I have to keep alt + tabbing whenever I have to get a talent.
-Hopefully this project will help me by going to the page and telling me which
-talent I need to get without leaving the game.
+`heroes-build-scrapper` is a packag designed to scrape character builds for
+the [MOBA](https://en.wikipedia.org/wiki/Multiplayer_online_battle_arena)
+game [Heroes of the Storm](https://heroesofthestorm.com/en-gb/). 
 
-Requirements
-------------
+All builds are collected from [Icy Veins](https://www.icy-veins.com/).
 
--   Python 3 and up
+## Installation
 
--   Beautiful Soup 4
+In order to installed `heroes-build-scrapper` you need to clone the repository
+and then run the `setup.py` file:
 
-Installation
-------------
+```
+$ git clone https://git@github.com:LTKills/heroes-build-scrapper.git
+$ cd heroes-build-scrapper
+$ python setup.py install
+```
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-$ pip install bs4
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+## Usage
 
-Usage
------
+Once you have installed the package you are ready to collect some builds. This is
+done using the following code:
 
-Contributing
-------------
+```
+>>> import heroes-build-scrapper
+>>> heroes-build-scrapper.update_heroes_list()
+>>> heroes-build-scrapper.update_all_builds()
+```
+
+## Contributing
 
 When contributing, add your nick and player tag to the [PLAYERS.md](PLAYERS.md) file. 
 
@@ -43,3 +45,4 @@ When contributing, add your nick and player tag to the [PLAYERS.md](PLAYERS.md) 
 -   Check your spelling and grammar thoroughly
 
 -   Have fun and happy open sourcing!
+=======

@@ -1,5 +1,8 @@
 
-
 *.pyc
 
+# data
 data/builds/*
+
+# build files
+src/heroes_build_scrapper.egg-info/
