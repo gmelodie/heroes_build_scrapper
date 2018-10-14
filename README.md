@@ -1,6 +1,6 @@
 # heroes-build-scrapper
 
-`heroes-build-scrapper` is a package designed to scrape character builds for
+`heroes_build_scrapper` is a package designed to scrape character builds for
 the [MOBA](https://en.wikipedia.org/wiki/Multiplayer_online_battle_arena)
 game [Heroes of the Storm](https://heroesofthestorm.com/en-gb/). 
 
@@ -8,7 +8,7 @@ All builds are collected from [Icy Veins](https://www.icy-veins.com/).
 
 ## Installation
 
-In order to install `heroes-build-scrapper` you need to clone the repository
+In order to install `heroes_build_scrapper` you need to clone the repository
 and then run the `setup.py` file:
 
 ```
@@ -23,9 +23,9 @@ Once you have installed the package you are ready to collect some builds. This i
 done using the following code:
 
 ```
->>> import heroes-build-scrapper
->>> heroes-build-scrapper.update_heroes_list()
->>> heroes-build-scrapper.update_all_builds()
+>>> import heroes_build_scrapper
+>>> heroes_build_scrapper.update_heroes_list()
+>>> heroes_build_scrapper.update_all_builds()
 ```
 
 ## Contributing
