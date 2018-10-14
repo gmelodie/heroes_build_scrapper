@@ -18,9 +18,9 @@ with open('requirements.txt') as fp:
 setup(
     install_requires=required,
     name='heroes_build_scrapper',
-    version='0.0.1',
+    version='1.0',
     author='Gabriel Cruz',
-    author_email=('email'),
+    author_email=('gabs.oficial98@gmail.com'),
     packages=find_packages('src'),
     package_dir={"": "src"},
     description='A library for scraping builds for Heroes of the Storm heroes.')
