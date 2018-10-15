@@ -45,4 +45,4 @@ When contributing, add your nick and player tag to the [PLAYERS.md](PLAYERS.md) 
 -   Check your spelling and grammar thoroughly
 
 -   Have fun and happy open sourcing!
-=======
+
