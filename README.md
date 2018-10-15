@@ -1,4 +1,4 @@
-# heroes-build-scrapper
+# heroes_build_scrapper
 
 `heroes_build_scrapper` is a package designed to scrape character builds for
 the [MOBA](https://en.wikipedia.org/wiki/Multiplayer_online_battle_arena)
@@ -12,8 +12,8 @@ In order to install `heroes_build_scrapper` you need to clone the repository
 and then run the `setup.py` file:
 
 ```
-$ git clone https://git@github.com:LTKills/heroes-build-scrapper.git
-$ cd heroes-build-scrapper
+$ git clone https://git@github.com:LTKills/heroes_build_scrapper.git
+$ cd heroes_build_scrapper
 $ python setup.py install
 ```
 
@@ -45,4 +45,4 @@ When contributing, add your nick and player tag to the [PLAYERS.md](PLAYERS.md) 
 -   Check your spelling and grammar thoroughly
 
 -   Have fun and happy open sourcing!
-=======
+
