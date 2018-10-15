@@ -8,7 +8,16 @@ All builds are collected from [Icy Veins](https://www.icy-veins.com/).
 
 ## Installation
 
-In order to install `heroes_build_scrapper` you need to clone the repository
+### Pip
+You can install `heroes_build_scrapper` from the pip repositories
+
+```
+pip install heroes_build_scrapper
+```
+
+
+### Cloning the repo
+In order to install `heroes_build_scrapper` manually you need to clone the repository
 and then run the `setup.py` file:
 
 ```
