@@ -1,4 +1,4 @@
-# heroes-build-scrapper
+# heroes_build_scrapper
 
 `heroes_build_scrapper` is a package designed to scrape character builds for
 the [MOBA](https://en.wikipedia.org/wiki/Multiplayer_online_battle_arena)
