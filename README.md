@@ -12,8 +12,8 @@ In order to install `heroes_build_scrapper` you need to clone the repository
 and then run the `setup.py` file:
 
 ```
-$ git clone https://git@github.com:LTKills/heroes-build-scrapper.git
-$ cd heroes-build-scrapper
+$ git clone https://git@github.com:LTKills/heroes_build_scrapper.git
+$ cd heroes_build_scrapper
 $ python setup.py install
 ```
 
