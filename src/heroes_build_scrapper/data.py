@@ -1,5 +1,7 @@
-#
-# gets all builds for all heroes (prints or writes to file (json?) -> JSON!
+"""Gets all builds for all heroes
+(prints or writes to file (json?) -> JSON!
+
+"""
 from .utils import get_soup, normalize_hero_name
 from .scrapping import get_hero_builds, print_build
 import json
@@ -8,11 +10,11 @@ from bs4 import BeautifulSoup
 import os
 
 
-'''
-Automatically scrape the list of heroes from icy-veins and
-write it to a json file (heroes.json)
-'''
 def update_heroes_list():
+    '''Automatically scrape the list of heroes from icy-veins and write it to a
+    json file (heroes.json)
+
+    '''
     heroes_names = set()
     roles = ['assassin', 'support', 'warrior', 'specialist']
 
@@ -29,10 +31,10 @@ def update_heroes_list():
         json.dump(list(heroes_names), fp)
 
 
-'''
-Updates list of builds (in [hero name].json) for a given hero
-'''
 def update_hero_builds(hero):
+    '''Updates list of builds (in [hero name].json) for a given hero
+
+    '''
     dump_list = []
     hero = normalize_hero_name(hero)
     print('Updating builds for ' + hero + '...', end='')
@@ -49,10 +51,10 @@ def update_hero_builds(hero):
     print('OK')
 
 
-'''
-Updates all builds of all heroes (calls update_builds for all heroes)
-'''
 def update_all_builds():
+    '''Updates all builds of all heroes (calls update_builds for all heroes)
+
+    '''
     print('Starting full heroes build update')
 
     with open('data/heroes.json', 'r') as fp:
@@ -62,10 +64,8 @@ def update_all_builds():
         update_hero_builds(hero)
 
 
-'''
-Loads builds for a hero
-'''
 def load_builds(hero):
+    '''Loads builds for a hero'''
     hero = normalize_hero_name(hero)
     filename = 'data/builds/' + hero + '.json'
     load_list = []
