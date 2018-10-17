@@ -29,7 +29,6 @@ def get_hero_builds(hero):
 
     Returns two lists: one with other lists (each one for each build) and the
     second one with the builds' titles
-
     '''
     builds = []
     hero = normalize_hero_name(hero)
