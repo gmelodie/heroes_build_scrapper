@@ -2,7 +2,7 @@
 (prints or writes to file (json?) -> JSON!
 '''
 from .utils import get_soup, normalize_hero_name
-from .scrapping import get_hero_builds, print_build
+from .scrapping import get_hero_builds
 import json
 import requests
 from bs4 import BeautifulSoup
@@ -60,32 +60,4 @@ def update_all_builds():
         update_hero_builds(hero)
 
 
-def load_builds(hero):
-    '''Loads builds for a hero'''
-    hero = normalize_hero_name(hero)
-    filename = 'data/builds/' + hero + '.json'
-    load_list = []
-    builds = []
-    builds_titles = []
 
-    with open(filename, 'r') as fp:
-        load_list = json.load(fp)
-
-    for i in range(0, len(load_list) - 1, 2):
-        builds.append(load_list[i])
-        builds_titles.append(load_list[i + 1])
-
-    return builds, builds_titles
-
-def print_all_builds():
-    with open('data/heroes.json', 'r') as fp:
-        heroes = json.load(fp)
-
-    with open('data/levels.json', 'r') as fp:
-        levels = json.load(fp)
-
-    for hero in heroes:
-        print('-------------------------------- ' + hero + ' --------------------------------')
-        builds, titles = load_builds(hero)
-        for build, title in zip(builds, titles):
-            print_build(levels, build, title)
