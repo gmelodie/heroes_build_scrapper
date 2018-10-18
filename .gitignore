@@ -9,3 +9,6 @@ data/builds/*
 src/heroes_build_scrapper.egg-info/
 build/
 dist/
+
+# built documentation
+docs/.build

@@ -14,12 +14,12 @@ def get_builds_titles(build_title_tags):
 
     return build_titles
 
-'''
-Scrape icy-veins for builds for the given hero
-Returns two lists: one with other lists (each one for each build)
-and the second one with the builds' titles
-'''
 def get_hero_builds(hero):
+    '''Scrape icy-veins for builds for the given hero.
+
+    Returns two lists: one with other lists (each one for each build) and the
+    second one with the builds' titles
+    '''
     builds = []
     hero = normalize_hero_name(hero)
     link = 'https://www.icy-veins.com/heroes/' + hero + '-build-guide'
