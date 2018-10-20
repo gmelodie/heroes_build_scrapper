@@ -5,6 +5,7 @@ import requests
 import json
 import os
 from bs4 import BeautifulSoup
+from .data import update_hero_builds
 
 def get_soup(link):
     '''Gets a link, downloads page and gets soup
