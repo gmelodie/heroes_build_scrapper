@@ -7,7 +7,7 @@ with open('requirements.txt') as fp:
 setup(
     install_requires=required,
     name='heroes_build_scrapper',
-    version='1.1.5',
+    version='1.1.6',
     author='Gabriel Cruz',
     author_email=('gabs.oficial98@gmail.com'),
     packages=find_packages('src'),
