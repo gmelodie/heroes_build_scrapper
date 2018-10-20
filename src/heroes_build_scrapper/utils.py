@@ -35,7 +35,7 @@ def get_heroes_list():
     with open('data/heroes.json', 'r') as fp:
         heroes = json.load(fp)
 
-    return heroes
+    return sorted(heroes)
 
 
 def print_build(levels, build, title):
