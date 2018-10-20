@@ -3,9 +3,7 @@
 import unicodedata
 import requests
 import json
-import os
 from bs4 import BeautifulSoup
-from .data import update_hero_builds
 
 def get_soup(link):
     '''Gets a link, downloads page and gets soup
@@ -13,30 +11,6 @@ def get_soup(link):
     '''
     page = requests.get(link)
     return BeautifulSoup(page.content, 'html.parser')
-
-
-def load_builds(hero):
-    '''Loads builds for a hero'''
-    hero = normalize_hero_name(hero)
-    filename = 'data/builds/' + hero + '.json'
-    load_list = []
-    builds = []
-    builds_titles = []
-
-    # Scrape builds if not found locally
-    if not os.path.exists(filename):
-        print('Hero builds not found, updating...', end = '')
-        update_hero_builds(hero)
-    print('OK')
-
-    with open(filename, 'r') as fp:
-        load_list = json.load(fp)
-
-    for i in range(0, len(load_list) - 1, 2):
-        builds.append(load_list[i])
-        builds_titles.append(load_list[i + 1])
-
-    return builds, builds_titles
 
 
 def get_heroes_list():
@@ -77,4 +51,5 @@ def normalize_hero_name(hero):
     hero = hero.replace('.', '')
     hero = hero.replace('\'', '')
     return hero.lower()
+
 

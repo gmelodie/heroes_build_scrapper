@@ -1,6 +1,8 @@
 
 from .utils import print_build, normalize_hero_name, get_soup
 import requests
+import os
+import json
 from bs4 import BeautifulSoup
 
 
@@ -45,3 +47,48 @@ def get_hero_builds(hero):
         builds.append(build[:])
 
     return builds, build_titles
+
+
+
+def update_hero_builds(hero):
+    '''Updates list of builds (in [hero name].json) for a given hero
+    '''
+    dump_list = []
+    hero = normalize_hero_name(hero)
+    print('Updating builds for ' + hero + '...', end='')
+    builds, titles = get_hero_builds(hero)
+    filename = 'data/builds/' + hero + '.json'
+
+    for build, title in zip(builds, titles):
+        dump_list.append(build)
+        dump_list.append(title)
+
+    with open(filename, 'w') as fp:
+        json.dump(dump_list, fp)
+
+    print('OK')
+
+
+def load_builds(hero):
+    '''Loads builds for a hero'''
+    hero = normalize_hero_name(hero)
+    filename = 'data/builds/' + hero + '.json'
+    load_list = []
+    builds = []
+    builds_titles = []
+
+    # Scrape builds if not found locally
+    if not os.path.exists(filename):
+        print('Hero builds not found')
+        update_hero_builds(hero)
+
+    with open(filename, 'r') as fp:
+        load_list = json.load(fp)
+
+    for i in range(0, len(load_list) - 1, 2):
+        builds.append(load_list[i])
+        builds_titles.append(load_list[i + 1])
+
+    print(builds, builds_titles)
+    return builds, builds_titles
+
