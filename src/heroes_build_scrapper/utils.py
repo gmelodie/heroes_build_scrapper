@@ -31,6 +31,13 @@ def load_builds(hero):
     return builds, builds_titles
 
 
+def get_heroes_list():
+    with open('data/heroes.json', 'r') as fp:
+        heroes = json.load(fp)
+
+    return heroes
+
+
 def print_build(levels, build, title):
     print(title)
     for level, talent in zip(levels, build):
@@ -48,8 +55,7 @@ def print_hero_builds(hero):
 
 
 def print_all_builds():
-    with open('data/heroes.json', 'r') as fp:
-        heroes = json.load(fp)
+    heroes = get_heroes_list()
 
     for hero in heroes:
         print_hero_builds(hero)
