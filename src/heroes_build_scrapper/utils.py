@@ -20,20 +20,22 @@ def get_heroes_list():
     return sorted(heroes)
 
 
-def print_build(levels, build, title):
+def print_build(build, title):
+
+    with open('data/levels.json', 'r') as fp:
+        levels = json.load(fp)
+
     print(title)
     for level, talent in zip(levels, build):
         print('Level ' + str(level) + ' Talent ' + str(talent))
 
 
 def print_hero_builds(hero):
-    with open('data/levels.json', 'r') as fp:
-        levels = json.load(fp)
 
     print('-------------------------------- ' + hero + ' --------------------------------')
     builds, titles = load_builds(hero)
     for build, title in zip(builds, titles):
-        print_build(levels, build, title)
+        print_build(build, title)
 
 
 def print_all_builds():
