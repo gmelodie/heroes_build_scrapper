@@ -3,6 +3,7 @@
 import unicodedata
 import requests
 import json
+import os
 from bs4 import BeautifulSoup
 
 def get_soup(link):
@@ -20,6 +21,12 @@ def load_builds(hero):
     load_list = []
     builds = []
     builds_titles = []
+
+    # Scrape builds if not found locally
+    if not os.path.exists(filename):
+        print('Hero builds not found, updating...', end = '')
+        update_hero_builds(hero)
+    print('OK')
 
     with open(filename, 'r') as fp:
         load_list = json.load(fp)

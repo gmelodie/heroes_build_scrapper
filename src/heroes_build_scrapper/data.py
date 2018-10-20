@@ -6,7 +6,6 @@ from .scrapping import get_hero_builds
 import json
 import requests
 from bs4 import BeautifulSoup
-import os
 
 
 def update_heroes_list():

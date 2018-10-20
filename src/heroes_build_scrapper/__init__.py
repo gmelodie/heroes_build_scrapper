@@ -1,5 +1,5 @@
 from .data import update_heroes_list, update_all_builds, update_hero_builds
-from .utils import print_hero_builds, get_heroes_list
+from .utils import print_hero_builds, get_heroes_list, load_builds
 import os
 import json
 
