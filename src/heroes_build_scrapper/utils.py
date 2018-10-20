@@ -21,21 +21,28 @@ def get_heroes_list():
 
 
 def print_build(build, title):
+    string = ''
 
     with open('data/levels.json', 'r') as fp:
         levels = json.load(fp)
 
-    print(title)
+    string += title + '\n'
     for level, talent in zip(levels, build):
-        print('Level ' + str(level) + ' Talent ' + str(talent))
+        string += 'Level ' + str(level) + ' Talent ' + str(talent) + '\n'
+
+    return string
 
 
 def print_hero_builds(hero):
+    string = ''
 
-    print('-------------------------------- ' + hero + ' --------------------------------')
+    string += '-------------------------------- ' + hero + ' --------------------------------' + '\n'
     builds, titles = load_builds(hero)
     for build, title in zip(builds, titles):
-        print_build(build, title)
+        string += print_build(build, title)
+        string += '\n'
+
+    return string
 
 
 def print_all_builds():
