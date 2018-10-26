@@ -1,9 +1,8 @@
-
-from .utils import print_build, normalize_hero_name, get_soup
-import requests
-import os
 import json
+import os
+import requests
 from bs4 import BeautifulSoup
+from .utils import print_build, normalize_hero_name, get_soup
 
 
 def get_builds_titles(build_title_tags):
@@ -16,11 +15,12 @@ def get_builds_titles(build_title_tags):
 
     return build_titles
 
+
 def get_hero_builds(hero):
     '''Scrape icy-veins for builds for the given hero.
 
-    Returns two lists: one with other lists (each one for each build) and the
-    second one with the builds' titles
+    Returns two lists: one with other lists (each one for each build)
+    and the second one with the builds' titles
     '''
     builds = []
     hero = normalize_hero_name(hero)
@@ -34,7 +34,8 @@ def get_hero_builds(hero):
 
     for build_number, build_tag in enumerate(builds_tags):
         build = []
-        talent_tiers = build_tag.find_all('span', class_= 'heroes_build_talent_tier_visual')
+        talent_tiers = build_tag.find_all(
+            'span', class_='heroes_build_talent_tier_visual')
 
         # find out which block is painted with green (chosen talent)
         for tier in talent_tiers:
@@ -47,7 +48,6 @@ def get_hero_builds(hero):
         builds.append(build[:])
 
     return builds, build_titles
-
 
 
 def update_hero_builds(hero):
@@ -91,4 +91,3 @@ def load_builds(hero):
 
     print(builds, builds_titles)
     return builds, builds_titles
-
