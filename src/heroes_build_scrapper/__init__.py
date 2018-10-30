@@ -1,8 +1,8 @@
-from .utils import print_hero_builds, get_heroes_list, print_build
+import json
+import os
 from .data import update_heroes_list, update_all_builds
 from .scrapping import update_hero_builds, load_builds
-import os
-import json
+from .utils import print_hero_builds, get_heroes_list, print_build
 
 name = 'heroes build scrapper'
 

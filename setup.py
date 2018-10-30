@@ -12,5 +12,6 @@ setup(
     author_email=('gabs.oficial98@gmail.com'),
     packages=find_packages('src'),
     package_dir={"": "src"},
-    description='A library for scraping builds for Heroes of the Storm heroes.',
+    description=('A library for scraping builds'
+                 'for Heroes of the Storm heroes.'),
 )

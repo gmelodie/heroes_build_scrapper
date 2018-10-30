@@ -1,9 +1,10 @@
-
 # Utilities' library
+
+import json
 import unicodedata
 import requests
-import json
 from bs4 import BeautifulSoup
+
 
 def get_soup(link):
     '''Gets a link, downloads page and gets soup
@@ -36,7 +37,8 @@ def print_build(build, title):
 def print_hero_builds(hero):
     string = ''
 
-    string += '-------------------------------- ' + hero + ' --------------------------------' + '\n'
+    string += ('-------------------------------- ' + hero
+               + ' --------------------------------' + '\n')
     builds, titles = load_builds(hero)
     for build, title in zip(builds, titles):
         string += print_build(build, title)
@@ -60,5 +62,3 @@ def normalize_hero_name(hero):
     hero = hero.replace('.', '')
     hero = hero.replace('\'', '')
     return hero.lower()
-
-
